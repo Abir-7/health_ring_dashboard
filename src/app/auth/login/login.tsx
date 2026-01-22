@@ -6,7 +6,7 @@ import { RHFInput } from "@/components/custom_ui/common/form/rhf_input";
 import { cookie } from "@/utils/cookies";
 import { useAppDispatch } from "@/lib/redux/hooks";
 
-import { loginSchema } from "@/schema/zod/login.schema";
+import { loginSchema } from "@/validation/zod/login.schema";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { z } from "zod";
@@ -40,7 +40,7 @@ const LoginPage = () => {
                     user_email: decoded.user_email,
                     user_role: decoded.user_role,
                   },
-                })
+                }),
               );
               cookie.setToken(data.access_token);
               toast.success("Login success");

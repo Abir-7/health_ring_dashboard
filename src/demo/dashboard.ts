@@ -28,7 +28,7 @@ export const health_data_two = {
   sleep_growth: 6.2, // %
   sleep_quality: 82, // %
   avg_step: 8430, // steps/day
-  step_growth: 9.1, // %
+  step_growth: -0.1, // %
 };
 
 export const overview_data = {
@@ -39,7 +39,7 @@ export const overview_data = {
   active_subscription: 3560,
   subscription_groth: 5.7, // %
   monthly_revenue: 84250, // $
-  revenue_groth: 8.9, // %
+  revenue_groth: -1.9, // %
 };
 
 export const health_data = {
