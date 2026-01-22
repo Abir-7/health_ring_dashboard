@@ -14,14 +14,14 @@ import UserSubscription from "../user_subscription";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-import UserOverview from "./user_overview";
+import UserOverview from "./modal_item/user_overview";
 import {
   familyMembers,
   userHealthInfo,
   userOverview,
 } from "@/demo/user_manage";
-import HealthOverview from "./health_overview";
-import MemberOverview from "./member_overview";
+import HealthOverview from "./modal_item/health_overview";
+import MemberOverview from "./modal_item/member_overview";
 function UserDetailsModal({ user }: { user: TUser }) {
   return (
     <Dialog>
