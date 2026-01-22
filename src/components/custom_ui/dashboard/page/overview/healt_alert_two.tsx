@@ -37,7 +37,7 @@ const HealthAlertTwo = ({ data }: { data: HeartAlertProps | null }) => {
   return (
     <div className="border p-4 rounded-lg text-user-filter-default">
       <h1 className="text-base font-semibold mb-4">
-        Health Alerts Requiring Attention
+        Average Health Metrics Across Platform
       </h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
