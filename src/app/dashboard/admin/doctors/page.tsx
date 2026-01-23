@@ -1,12 +1,11 @@
 import AppointmentTable from "@/components/custom_ui/dashboard/page/appointment/appointment_table";
-import { Button } from "@/components/ui/button";
+
 import { Input } from "@/components/ui/input";
 import type { Subscription_Tier } from "@/types/res/get_all_users";
 import { Search } from "lucide-react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
-const DoctorAppointment = () => {
+const Doctors = () => {
   const [search, setSearch] = useState("");
 
   const appointments = [
@@ -45,31 +44,22 @@ const DoctorAppointment = () => {
   ];
   return (
     <div className="p-4 space-y-4">
-      <div className="flex gap-4">
-        <div className="lg:flex-1 relative">
-          <Input
-            type="text"
-            placeholder="Search by name"
-            className="ps-10"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-          <div className="absolute top-1/2 -translate-y-1/2 left-2">
-            <Search size={20} className="text-input-search" />
-          </div>
+      <div className="lg:flex-1 relative">
+        <Input
+          type="text"
+          placeholder="Search by name"
+          className="ps-10"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        <div className="absolute top-1/2 -translate-y-1/2 left-2">
+          <Search size={20} className="text-input-search" />
         </div>
-        <Link to="/doctors">
-          <Button
-            className="ml-auto text-user-filter-option "
-            variant={"outline"}
-          >
-            Doctor List
-          </Button>
-        </Link>
       </div>
+
       <AppointmentTable data={appointments} />
     </div>
   );
 };
 
-export default DoctorAppointment;
+export default Doctors;

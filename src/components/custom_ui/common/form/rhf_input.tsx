@@ -12,8 +12,9 @@ interface TextFieldProps<T extends FieldValues> {
   name: Path<T>;
   label?: string;
   placeholder?: string;
-  type?: "text" | "email" | "password";
+  type?: "text" | "email" | "password" | "number";
   className?: string;
+  labelStyle?: string;
 }
 
 export function RHFInput<T extends FieldValues>({
@@ -22,6 +23,7 @@ export function RHFInput<T extends FieldValues>({
   placeholder,
   type = "text",
   className,
+  labelStyle,
 }: TextFieldProps<T>) {
   const { control } = useFormContext<T>();
 
@@ -31,7 +33,7 @@ export function RHFInput<T extends FieldValues>({
       name={name}
       render={({ field }) => (
         <FormItem>
-          {label && <FormLabel>{label}</FormLabel>}
+          {label && <FormLabel className={labelStyle}>{label}</FormLabel>}
           <FormControl>
             <Input
               className={className}
