@@ -43,6 +43,12 @@ const items: { title: string; url: string; icon: any; roles: UserRole[] }[] = [
     roles: ["admin", "user"],
   },
   {
+    title: "Doctor List",
+    url: "/doctors",
+    icon: User,
+    roles: ["admin", "user"],
+  },
+  {
     title: "Settings",
     url: "/settings",
     icon: User,
@@ -56,7 +62,7 @@ const AppSidebar = () => {
   const user = useAppSelector((state) => state.auth.user);
   console.log(user?.user_email);
   const filteredItems = items.filter((item) =>
-    item.roles.includes(user?.user_role as UserRole)
+    item.roles.includes(user?.user_role as UserRole),
   );
 
   return (

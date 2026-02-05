@@ -1,3 +1,4 @@
+import type { RevenueOverviewProps } from "@/types/res/revenue";
 import {
   ArrowDown,
   ArrowUp,
@@ -6,16 +7,7 @@ import {
   DollarSign,
 } from "lucide-react";
 
-interface HeartAlertProps {
-  total_revenue: number;
-  revenue_growth: number;
-  total_transactions: number;
-  transaction_growth: number;
-  success_rate: number;
-  success_rate_growth: number | null;
-}
-
-const RevenueOverview = ({ data }: { data: HeartAlertProps | null }) => {
+const RevenueOverview = ({ data }: { data: RevenueOverviewProps | null }) => {
   const health_alerts = [
     {
       title: "Total Revenue",

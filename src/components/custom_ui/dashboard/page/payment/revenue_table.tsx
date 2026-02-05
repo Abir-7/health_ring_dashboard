@@ -8,23 +8,13 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import type { Subscription_Tier } from "@/types/res/get_all_users";
+
+import type { PaymentData } from "@/types/res/revenue";
+
 import { CircleCheckBigIcon, CircleX, Clock } from "lucide-react";
 
-export type PaymentType = "Stripe" | "Paypal";
-export type PaymentStatus = "complete" | "pending" | "failed";
-interface RevenueData {
-  trx_id: string;
-  user: string;
-  plan: Subscription_Tier;
-  amount: number;
-  method: PaymentType;
-  status: PaymentStatus;
-  date: string;
-}
-
 interface RevenueTableProps {
-  data: RevenueData[];
+  data: PaymentData[];
 }
 
 const RevenueTable = ({ data }: RevenueTableProps) => {

@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/static-components */
+import type { RevenueData } from "@/types/res/dashboard";
 import React from "react";
 import {
   LineChart,
@@ -9,11 +10,6 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-
-interface RevenueData {
-  month: string;
-  revenue: number;
-}
 
 interface CustomTooltipProps {
   active?: boolean;

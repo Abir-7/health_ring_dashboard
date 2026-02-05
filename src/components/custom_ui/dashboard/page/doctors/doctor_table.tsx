@@ -6,29 +6,33 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import UserSubscription from "../manage_user/user_subscription";
 
-import type { AppointmentProps } from "@/types/res/appointment";
+import type { DoctorProps } from "@/types/res/doctor.res";
+import UserStatus from "../manage_user/user_status";
+import { Trash2 } from "lucide-react";
 
 interface Props {
-  data: AppointmentProps[];
+  data: DoctorProps[];
 }
 
-const AppointmentTable = ({ data }: Props) => {
+const DoctorTable = ({ data }: Props) => {
   return (
     <div className="rounded-md border">
       <Table className="min-w-225">
         <TableHeader>
           <TableRow>
-            <TableHead className="text-user-filter-option">User</TableHead>
-            <TableHead className="text-user-filter-option">Contact</TableHead>
-            <TableHead className="text-user-filter-option">Doctor</TableHead>
             <TableHead className="text-user-filter-option">
-              Subscription
+              Specialist
             </TableHead>
-            <TableHead className="text-user-filter-option">Date</TableHead>
+            <TableHead className="text-user-filter-option">Join Date</TableHead>
+            <TableHead className="text-user-filter-option">Contact</TableHead>
             <TableHead className="text-user-filter-option">
-              Appointment ID
+              Appointments
+            </TableHead>
+            <TableHead className="text-user-filter-option">Status</TableHead>
+
+            <TableHead className="text-user-filter-option text-center">
+              Action
             </TableHead>
           </TableRow>
         </TableHeader>
@@ -44,62 +48,60 @@ const AppointmentTable = ({ data }: Props) => {
               </TableCell>
             </TableRow>
           ) : (
-            data.map((item) => (
-              <TableRow key={item.appointment_id}>
-                {/* USER */}
+            data.map((item, i) => (
+              <TableRow key={i}>
+                {/* SPECIALIST */}
                 <TableCell>
                   <div className="flex items-center gap-3">
                     <img
-                      src={item.user.image}
-                      alt={item.user.full_name}
+                      src={item.image}
+                      alt={item.name}
                       className="h-10 w-10 rounded-full object-cover"
                     />
                     <div>
                       <p className="font-medium text-user-filter-default">
-                        {item.user.full_name}
+                        {item.name}
                       </p>
                       <p className="text-sm text-muted-foreground text-wrap">
-                        {item.user.address}
+                        {item.specialist}
                       </p>
                     </div>
                   </div>
                 </TableCell>
 
-                {/* CONTACT */}
+                {/*JOIN DATE */}
                 <TableCell>
                   <div className="text-sm">
                     <p className="text-user-filter-default">
-                      {item.user.mobile}
+                      {" "}
+                      {new Date(item.date).toLocaleDateString()}
                     </p>
-                    <p className="text-muted-foreground">{item.user.email}</p>
+                  </div>
+                </TableCell>
+                <TableCell>
+                  <div className="text-sm">
+                    <p className="text-user-filter-default">{item.contact}</p>
                   </div>
                 </TableCell>
 
-                {/* DOCTOR */}
+                {/* APPOINTMENTS */}
                 <TableCell>
                   <div>
                     <p className="font-medium text-user-filter-default">
-                      {item.doctor.name}
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      {item.doctor.specialist}
+                      {item.appointment}
                     </p>
                   </div>
                 </TableCell>
-
-                {/* SUBSCRIPTION */}
+                {/* Status*/}
                 <TableCell className="capitalize">
-                  <UserSubscription subs={item.subscription_type} />
+                  <UserStatus status={item.status} />
                 </TableCell>
 
-                {/* DATE */}
-                <TableCell className="text-user-filter-default">
-                  {new Date(item.date).toLocaleDateString()}
-                </TableCell>
-
-                {/* ID */}
-                <TableCell className=" text-sm text-user-filter-default">
-                  {item.appointment_id}
+                <TableCell className="capitalize">
+                  <Trash2
+                    size={16}
+                    className="text-red-300 mx-auto hover:text-red-400"
+                  ></Trash2>
                 </TableCell>
               </TableRow>
             ))
@@ -110,4 +112,4 @@ const AppointmentTable = ({ data }: Props) => {
   );
 };
 
-export default AppointmentTable;
+export default DoctorTable;
