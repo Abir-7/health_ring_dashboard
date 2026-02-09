@@ -49,6 +49,12 @@ const items: { title: string; url: string; icon: any; roles: UserRole[] }[] = [
     roles: ["admin", "user"],
   },
   {
+    title: "Upload",
+    url: "/upload",
+    icon: User,
+    roles: ["admin", "user"],
+  },
+  {
     title: "Settings",
     url: "/settings",
     icon: User,

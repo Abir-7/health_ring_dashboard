@@ -1,12 +1,11 @@
+import AddNewDoctor from "@/components/custom_ui/dashboard/page/doctors/add_doc_modal";
 import DoctorTable from "@/components/custom_ui/dashboard/page/doctors/doctor_table";
-import { Button } from "@/components/ui/button";
 
 import { Input } from "@/components/ui/input";
 import { useGetDoctorQuery } from "@/react_query_hook/query/doctor.query";
 
-import { Plus, Search } from "lucide-react";
+import { Search } from "lucide-react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
 const Doctors = () => {
   const [search, setSearch] = useState("");
@@ -27,13 +26,8 @@ const Doctors = () => {
               <Search size={20} className="text-input-search" />
             </div>
           </div>
-          <Link to="/doctors">
-            <Button className="text-user-filter-option " variant={"outline"}>
-              <span className="flex items-center">
-                Add <Plus size={14} className="" />
-              </span>
-            </Button>
-          </Link>
+
+          <AddNewDoctor></AddNewDoctor>
         </div>
       </div>
       <DoctorTable data={doctors || []} />

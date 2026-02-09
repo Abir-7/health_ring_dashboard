@@ -10,6 +10,7 @@ import {
 import type { DoctorProps } from "@/types/res/doctor.res";
 import UserStatus from "../manage_user/user_status";
 import { Trash2 } from "lucide-react";
+import DoctorDetails from "./details_modal";
 
 interface Props {
   data: DoctorProps[];
@@ -18,7 +19,7 @@ interface Props {
 const DoctorTable = ({ data }: Props) => {
   return (
     <div className="rounded-md border">
-      <Table className="min-w-225">
+      <Table className="w-full min-w-200">
         <TableHeader>
           <TableRow>
             <TableHead className="text-user-filter-option">
@@ -52,21 +53,13 @@ const DoctorTable = ({ data }: Props) => {
               <TableRow key={i}>
                 {/* SPECIALIST */}
                 <TableCell>
-                  <div className="flex items-center gap-3">
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className="h-10 w-10 rounded-full object-cover"
-                    />
-                    <div>
-                      <p className="font-medium text-user-filter-default">
-                        {item.name}
-                      </p>
-                      <p className="text-sm text-muted-foreground text-wrap">
-                        {item.specialist}
-                      </p>
-                    </div>
-                  </div>
+                  <DoctorDetails
+                    data={{
+                      image: item.image,
+                      name: item.name,
+                      specialist: item.specialist,
+                    }}
+                  ></DoctorDetails>
                 </TableCell>
 
                 {/*JOIN DATE */}

@@ -6,27 +6,27 @@ import {
   FormControl,
   FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
-interface TextFieldProps<T extends FieldValues> {
+interface TextareaFieldProps<T extends FieldValues> {
   name: Path<T>;
   label?: string;
   placeholder?: string;
-  type?: "text" | "email" | "password" | "number";
   className?: string;
   labelStyle?: string;
   readonly?: boolean;
+  rows?: number; // optional rows
 }
 
-export function RHFInput<T extends FieldValues>({
+export function RHFTextarea<T extends FieldValues>({
   name,
   label,
   placeholder,
-  type = "text",
   className,
   labelStyle,
   readonly = false,
-}: TextFieldProps<T>) {
+  rows = 4,
+}: TextareaFieldProps<T>) {
   const { control } = useFormContext<T>();
 
   return (
@@ -37,12 +37,14 @@ export function RHFInput<T extends FieldValues>({
         <FormItem>
           {label && <FormLabel className={labelStyle}>{label}</FormLabel>}
           <FormControl>
-            <Input
-              readOnly={readonly}
-              className={`${className} ${readonly ? "pointer-events-none" : ""} focus-within:ring-0 focus-visible:ring-0   `}
+            <Textarea
               {...field}
+              readOnly={readonly}
+              rows={rows}
               placeholder={placeholder}
-              type={type}
+              className={`${className} ${
+                readonly ? "pointer-events-none" : ""
+              } focus-within:ring-0 focus-visible:ring-0`}
             />
           </FormControl>
           <FormMessage />

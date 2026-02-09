@@ -14,6 +14,7 @@ import PaymentPage from "./app/dashboard/admin/payment/payment";
 import DoctorAppointment from "./app/dashboard/admin/doctor_appoinment/doctor_appointment";
 import Settings from "./app/dashboard/admin/settings/settings";
 import Doctors from "./app/dashboard/admin/doctors/doctor";
+import Upload from "./app/dashboard/admin/upload/upload";
 
 const router = createBrowserRouter([
   // {
@@ -87,6 +88,14 @@ const router = createBrowserRouter([
         element: (
           <CheckRole role={["user", "admin"]}>
             <Doctors />
+          </CheckRole>
+        ),
+      },
+      {
+        path: "upload",
+        element: (
+          <CheckRole role={["user", "admin"]}>
+            <Upload />
           </CheckRole>
         ),
       },
