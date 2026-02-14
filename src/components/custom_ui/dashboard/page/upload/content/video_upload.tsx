@@ -16,11 +16,18 @@ const Video_upload = () => {
           options={[{ label: "Category 1", value: "value-1" }]}
           placeholder="Select Category"
         ></RHFSelect>
-        <RHFImageUploadWithDelete
-          className="w-36 h-36"
-          name="video"
-          label="Upload Video"
-        ></RHFImageUploadWithDelete>
+        <div className=" gap-6 flex flex-wrap">
+          <RHFImageUploadWithDelete
+            className="w-36 h-36"
+            name="video"
+            label="Upload Video"
+          ></RHFImageUploadWithDelete>
+          <RHFImageUploadWithDelete
+            className="w-36 h-36"
+            name="image"
+            label="Upload Image"
+          ></RHFImageUploadWithDelete>
+        </div>
         <RHFInput name="title" label="Caption"></RHFInput>
         <RHFTextarea name="description" label="Description"></RHFTextarea>
         <div className="flex justify-end">

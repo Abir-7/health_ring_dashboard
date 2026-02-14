@@ -10,7 +10,7 @@ const Articles_upload = () => {
       <RHFForm onSubmit={() => {}}>
         <RHFImageUploadWithDelete
           className="w-36 h-36"
-          name="video"
+          name="image"
           label="Upload Image"
         ></RHFImageUploadWithDelete>
         <RHFInput name="title" label="Caption"></RHFInput>
